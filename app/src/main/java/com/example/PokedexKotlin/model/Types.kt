@@ -3,6 +3,6 @@ package com.example.PokedexKotlin.model
 import com.google.gson.annotations.SerializedName
 
 data class Types(
-    @SerializedName("slot") val slot: String,
+    @SerializedName("slot") val slot: Int,
     @SerializedName("type") val type: ListTypes
 )

@@ -1,6 +1,7 @@
 package com.example.PokedexKotlin.adapters
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,14 +23,19 @@ class PokiListAdp(val pokiList: List<Pokemon>, val frgMng: FragmentManager) : Re
         holder.imagePoki.setOnClickListener(object: View.OnClickListener {
             override fun onClick(v: View?) {
                 val stats = ArrayList<String>()
-                stats.add(0, "Name:    ${pokiList.get(position).name}")
-                stats.add(1, "Tipo:    ${pokiList.get(position).types.get(0).type.nameT}"+"/" + ("${pokiList.get(position).types.get(1).type.nameT}" ))
-                stats.add(2, "Height:  ${pokiList.get(position).height}")
-                stats.add(3, "Weight:  ${pokiList.get(position).weight}")
-                stats.add(4, "Defense: ${pokiList.get(position).stats.get(3).baseStat}")
-                stats.add(5, "Attack:  ${pokiList.get(position).stats.get(4).baseStat}")
+                stats.add(0, "Nome:    ${pokiList.get(position).name}")
+                if (pokiList.get(position).types.get(0).slot == 2){
+                    stats.add(1, "Tipo:    ${pokiList.get(position).types.get(0).type.nameT}"+"/" + ("${pokiList.get(position).types.get(1).type.nameT}" ))
+
+                }else{
+                    stats.add(1, "Tipo:    ${pokiList.get(position).types.get(0).type.nameT}")
+                }
+                stats.add(2, "Altura:  ${pokiList.get(position).height}")
+                stats.add(3, "Peso:  ${pokiList.get(position).weight}")
+                stats.add(4, "Defesa: ${pokiList.get(position).stats.get(3).baseStat}")
+                stats.add(5, "Ataque:  ${pokiList.get(position).stats.get(4).baseStat}")
                 stats.add(6, "HP:      ${pokiList.get(position).stats.get(5).baseStat}")
-                stats.add(7, "Speed:   ${pokiList.get(position).stats.get(0).baseStat}")
+                stats.add(7, "Velocidade:   ${pokiList.get(position).stats.get(0).baseStat}")
                 stats.add(8,                     pokiList.get(position).sprites.frontDefault)
                 val args = Bundle()
                 args.putStringArrayList("stats", stats)
