@@ -21,8 +21,8 @@ class FragmentPokemonStats : Fragment() {
         val imagePoki: ImageView = imagePokiStat
         recyclerCreate()
         val stats = arguments!!.getStringArrayList("stats")
-        val imgUrl = stats.get(8)
-        stats.removeAt(8)
+        val imgUrl = stats.get(10)
+        stats.removeAt(10)
         recyclerViewStat.adapter = PokiStatsAdp(stats, imgUrl, imagePoki)
     }
 

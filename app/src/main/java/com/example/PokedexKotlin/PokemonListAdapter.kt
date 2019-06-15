@@ -21,11 +21,11 @@ class PokiListAdp(val pokemonList: List<Pokemon>, val frgMng: FragmentManager) :
     override fun getItemCount() = pokemonList.size
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         holder as PokiListVH
-        holder.namePoki.setText(pokemonList.get(position).name)
+        holder.namePoki.setText(pokemonList.get(position).name.capitalize())
         holder.imagePoki.setOnClickListener(object: View.OnClickListener {
             override fun onClick(v: View?) {
                 val stats = ArrayList<String>()
-                stats.add(0, "Nome:    ${pokemonList.get(position).name}")
+                stats.add(0, "Nome:    ${(pokemonList.get(position).name).capitalize()}")
                 if (pokemonList.get(position).types.get(0).slot == 2){
                     stats.add(1, "Tipo:    ${pokemonList.get(position).types.get(0).type.nameT}"+"/" + ("${pokemonList.get(position).types.get(1).type.nameT}" ))
 
@@ -37,9 +37,11 @@ class PokiListAdp(val pokemonList: List<Pokemon>, val frgMng: FragmentManager) :
                 stats.add(4, "HP:      ${pokemonList.get(position).stats.get(5).baseStat}")
                 stats.add(5, "Defesa: ${pokemonList.get(position).stats.get(3).baseStat}")
                 stats.add(6, "Ataque:  ${pokemonList.get(position).stats.get(4).baseStat}")
+                stats.add(7, "SP. Defesa: ${pokemonList.get(position).stats.get(1).baseStat}")
+                stats.add(8, "SP. Ataque:  ${pokemonList.get(position).stats.get(2).baseStat}")
 
-                stats.add(7, "Velocidade:   ${pokemonList.get(position).stats.get(0).baseStat}")
-                stats.add(8,                     pokemonList.get(position).sprites.frontDefault)
+                stats.add(9, "Velocidade:   ${pokemonList.get(position).stats.get(0).baseStat}")
+                stats.add(10,                     pokemonList.get(position).sprites.frontDefault)
                 val args = Bundle()
                 args.putStringArrayList("stats", stats)
                 val pokiStatsFrg = FragmentPokemonStats()

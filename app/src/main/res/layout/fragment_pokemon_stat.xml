@@ -2,7 +2,7 @@
 
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/fragments"
+    xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" style="@style/fragments"
     android:id="@+id/pokeStatFrg">
 
     <ImageView
@@ -11,7 +11,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_marginRight="5dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="55dp"
         android:contentDescription="@string/imagePoki">
     </ImageView>
 
@@ -19,8 +19,15 @@
         android:id="@+id/recyclerViewStat"
         style="@style/recyclerView"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="55dp"
         android:layout_marginEnd="95dp"
         android:layout_toLeftOf="@id/imagePokiStat"></androidx.recyclerview.widget.RecyclerView>
+    <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/holo_red_light"
+            android:theme="?attr/actionBarTheme"
+            android:minHeight="?attr/actionBarSize" android:id="@+id/toolbar" tools:visibility="visible"
+            android:visibility="visible" app:title="Pokédex" app:titleMarginStart="400px"/>
 
 </RelativeLayout>

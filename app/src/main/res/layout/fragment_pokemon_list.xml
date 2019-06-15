@@ -2,13 +2,16 @@
 
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/fragments"
+    xmlns:app="http://schemas.android.com/apk/res-auto" style="@style/fragments"
     android:id="@+id/pokeListFrg">
 
 
     <androidx.recyclerview.widget.RecyclerView
         style="@style/recyclerView"
-        android:id="@+id/recyclerViewList">
+        android:id="@+id/recyclerViewList"
+        android:layout_marginTop="55dp"
+    >
+
     </androidx.recyclerview.widget.RecyclerView>
 
 
@@ -20,5 +23,12 @@
     <ProgressBar
         android:id="@+id/progressBar"
         style="@style/progressBar"/>
+    <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/holo_red_light"
+            android:theme="?attr/actionBarTheme"
+            android:minHeight="?attr/actionBarSize" android:id="@+id/toolbar2" app:title="Pokédex"
+            android:gravity="center" app:titleMarginStart="400px"/>
 
 </RelativeLayout>
