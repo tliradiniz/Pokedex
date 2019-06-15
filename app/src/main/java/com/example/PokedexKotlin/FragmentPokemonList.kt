@@ -1,38 +1,32 @@
-package com.example.PokedexKotlin.fragments
+package com.example.PokedexKotlin
 
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.CheckBox
 import android.widget.ProgressBar
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.PokedexKotlin.R
-import com.example.PokedexKotlin.adapters.PokiListAdp
-import com.example.PokedexKotlin.api.PokiApi
-import com.example.PokedexKotlin.model.Base
-import com.example.PokedexKotlin.model.Pokemon
-import kotlinx.android.synthetic.main.poki_list_frg.*
+import kotlinx.android.synthetic.main.fragment_pokemon_list.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class PokiListFrg(private val frgMng: FragmentManager) : Fragment() {
+class FragmentPokemonList(private val frgMng: FragmentManager) : Fragment() {
     private lateinit var rvList:      RecyclerView
     private lateinit var prgBar:      ProgressBar
-    private lateinit var base:        Base
-    private val restClient = PokiApi.create()
+    private lateinit var base: Base
+    private val restClient = PokeRetrofit.create()
     private var isReady  = true
     private var pokiList = arrayListOf<Pokemon>()
     private var offset   = 0
-    private val limit    = 150
+    private val limit    = 151
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?)
-            = inflater.inflate(R.layout.poki_list_frg, container, false)
+            = inflater.inflate(R.layout.fragment_pokemon_list, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -49,15 +43,15 @@ class PokiListFrg(private val frgMng: FragmentManager) : Fragment() {
         rvList.addOnScrollListener(object: RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
-                val vsblItem = gridLayoutMng.childCount
-                val pastItem = gridLayoutMng.findFirstVisibleItemPosition()
-                val totlItem = gridLayoutMng.itemCount
-                if ((dy > 0) && isReady && ((vsblItem + pastItem) >= totlItem)) {
-                    isReady = false
-                    offset += 150
-                    if (offset == base.count) offset = 0
-                    requestList()
-                }
+//                val vsblItem = gridLayoutMng.childCount
+//                val pastItem = gridLayoutMng.findFirstVisibleItemPosition()
+//                val totlItem = gridLayoutMng.itemCount
+//                if ((dy > 0) && isReady && ((vsblItem + pastItem) >= totlItem)) {
+//                    isReady = false
+//                    offset += 150
+//                    if (offset == base.count) offset = 0
+//                    requestList()
+//                }
             }
         })
     }

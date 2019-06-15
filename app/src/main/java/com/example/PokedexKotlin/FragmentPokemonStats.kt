@@ -1,4 +1,4 @@
-package com.example.PokedexKotlin.fragments
+package com.example.PokedexKotlin
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,15 +8,13 @@ import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.PokedexKotlin.R
-import com.example.PokedexKotlin.adapters.PokiStatsAdp
-import kotlinx.android.synthetic.main.poki_stat_frg.*
+import kotlinx.android.synthetic.main.fragment_pokemon_stat.*
 
-class PokiStatsFrg : Fragment() {
+class FragmentPokemonStats : Fragment() {
     private lateinit var rvList: RecyclerView
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?)
-            = inflater.inflate(R.layout.poki_stat_frg, container, false)
+            = inflater.inflate(R.layout.fragment_pokemon_stat, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

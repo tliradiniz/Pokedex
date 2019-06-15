@@ -2,11 +2,10 @@ package com.example.PokedexKotlin
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.PokedexKotlin.fragments.PokiListFrg
 
 class MainActivity : AppCompatActivity() {
     private val frgMng      = supportFragmentManager;
-    private val pokiListFrg = PokiListFrg(frgMng)
+    private val pokiListFrg = FragmentPokemonList(frgMng)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

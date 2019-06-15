@@ -10,8 +10,8 @@
         android:id="@+id/imagePokiStat"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
         android:contentDescription="@string/imagePoki">
     </ImageView>
 
@@ -20,7 +20,7 @@
         style="@style/recyclerView"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="96dp"
+        android:layout_marginEnd="95dp"
         android:layout_toLeftOf="@id/imagePokiStat"></androidx.recyclerview.widget.RecyclerView>
 
 </RelativeLayout>
